@@ -1,0 +1,16 @@
+<%- include('partials/header.ejs') %>
+<h1> home</h1>
+<p><%= StartingContent %> </p>
+<% for (var i = 0;i < postsStorage.length; i++){ %>
+    <h1> <%= postsStorage[i].title %> </h1>
+    <% if (postsStorage[i].content.length > 100) { %>
+        <p> 
+            <%= postsStorage[i].content.substring(0,100) %> ... 
+            <a href="/post/<%= postsStorage[i].title %>">Read more</a> 
+        </p>
+    <% } else { %>
+        <p> <%= postsStorage[i].content %> </p>
+    <% } %>
+<% } %>
+
+<%- include('partials/footer.ejs') %>
